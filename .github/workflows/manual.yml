@@ -1,0 +1,19 @@
+name: Run every Saturday morning
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # 매주 토요일 오전 8시 (UTC) 실행
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run script
+        run: npm run start
