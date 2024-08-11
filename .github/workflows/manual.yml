@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # 원하는 Node.js 버전 지정
+          node-version: '22.2.0'  # 원하는 Node.js 버전 지정
 
       - name: Install dependencies
         run: npm install
