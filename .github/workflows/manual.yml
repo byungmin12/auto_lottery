@@ -2,7 +2,7 @@ name: Run every Saturday morning
 
 on:
   schedule:
-    - cron: '0 8 * * 1'  # 매주 토요일 오전 8시 (UTC) 실행
+    - cron: '0 9 * * 1'  # 매주 토요일 오전 8시 (UTC) 실행
 
 jobs:
   run-script:
@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # 원하는 Node.js 버전 지정
 
       - name: Install dependencies
         run: npm install
