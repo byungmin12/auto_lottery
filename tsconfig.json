@@ -8,8 +8,12 @@
     "rootDir": "./src",       // 소스 파일이 위치한 디렉토리
     "skipLibCheck": true,     // 라이브러리 파일의 타입 검사 건너뛰기
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution":"node"
+    "moduleResolution":"node",
   },
   "include": ["src/**/*.ts", "node_modules/@types/puppeteer/index.d.ts"],    // 포함할 파일
-  "exclude": ["node_modules"] // 제외할 파일
+  "exclude": ["node_modules"], // 제외할 파일
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
 }
