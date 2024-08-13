@@ -17,11 +17,13 @@
   "license": "ISC",
   "dependencies": {
     "@types/puppeteer": "^7.0.4",
+    "nodemailer": "^6.9.14",
     "puppeteer": "^22.15.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/node": "^22.1.0",
+    "@types/nodemailer": "^6.4.15",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
     "nodemon": "^3.1.4",

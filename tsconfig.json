@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2022",          // 컴파일된 JavaScript의 ECMAScript 버전
-    "module": "esnext",     // 모듈 시스템 (예: commonjs, es6 등)
-    "strict": true,           // 엄격한 타입 검사를 활성화
-    "esModuleInterop": true,  // CommonJS와 ES 모듈 간의 호환성
-    "outDir": "./dist",       // 컴파일된 파일을 저장할 디렉토리
-    "rootDir": "./src",       // 소스 파일이 위치한 디렉토리
-    "skipLibCheck": true,     // 라이브러리 파일의 타입 검사 건너뛰기
+    "target": "es6", // 컴파일된 JavaScript의 ECMAScript 버전
+    "module": "esnext", // 모듈 시스템 (예: commonjs, es6 등)
+    "strict": true, // 엄격한 타입 검사를 활성화
+    "esModuleInterop": true, // CommonJS와 ES 모듈 간의 호환성
+    "outDir": "./dist", // 컴파일된 파일을 저장할 디렉토리
+    "rootDir": "./src", // 소스 파일이 위치한 디렉토리
+    "skipLibCheck": true, // 라이브러리 파일의 타입 검사 건너뛰기
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution":"node",
+    "moduleResolution": "node"
   },
-  "include": ["src/**/*.ts", "node_modules/@types/puppeteer/index.d.ts"],    // 포함할 파일
+  "include": ["src/**/*.ts", "node_modules/@types/puppeteer/index.d.ts"], // 포함할 파일
   "exclude": ["node_modules"], // 제외할 파일
   "tsc-alias": {
     "resolveFullPaths": true,

@@ -2,7 +2,7 @@ name: Run every Saturday morning
 
 on:
   schedule:
-    - cron: '0 14 * * 2'  # 매주 토요일 오전 8시 (UTC) 실행
+    - cron: '0 0 * * 3' # 매주 토요일 오전 8시 (UTC) 실행
 
 jobs:
   run-script:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22.2.0'  # 원하는 Node.js 버전 지정
+          node-version: '22.2.0' # 원하는 Node.js 버전 지정
 
       - name: Install dependencies
         run: npm install
