@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
-import path from 'path';
+import path, { dirname } from 'path';
 import { Page } from 'puppeteer';
+import { fileURLToPath } from 'url';
 
 export const navigateToPage = async (page: Page, url: string) => {
   await page.goto(url);
@@ -43,6 +44,9 @@ export const sendEmail = async () => {
       pass: process.env.GMAIL_PASS,
     },
   });
+
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = dirname(__filename);
 
   await transporter.sendMail({
     from: `byungminkim12@gmail.com`,
