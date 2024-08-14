@@ -20,5 +20,5 @@ import { confirmAndBuy, loginToSite, navigateToPage, selectLotteryNumbers, sendE
 
   await browser.close();
 
-  await sendEmail();
+  // await sendEmail();
 })();
