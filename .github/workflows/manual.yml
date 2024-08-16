@@ -2,7 +2,7 @@ name: Run every Saturday morning
 
 on:
   schedule:
-    - cron: '40 7 * * 5' # 매주 토요일 오전 8시 (UTC) 실행
+    - cron: '50 7 * * 5' # 매주 토요일 오전 8시 (UTC) 실행
 
 jobs:
   run-script:
@@ -20,12 +20,18 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: .env setting
+      - name: Create and populate .env file
         run: |
+          : > .env
+
+          # Append environment variables
           echo "LOTTERY_ID=${{ secrets.LOTTERY_ID }}" >> .env
-          echo "LOTTEY_PASSWORD=${{ secrets.LOTTEY_PASSWORD }}" >> .env
+          echo "LOTTERY_PASSWORD=${{ secrets.LOTTERY_PASSWORD }}" >> .env
           echo "GMAIL_ID=${{ secrets.GMAIL_ID }}" >> .env
           echo "GMAIL_PASS=${{ secrets.GMAIL_PASS }}" >> .env
+
+      - name: Verify .env file
+        run: cat .env
 
       - name: Run script
         run: npm run build:start
