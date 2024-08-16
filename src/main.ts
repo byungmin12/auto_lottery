@@ -13,10 +13,10 @@ dotenv.config();
   const page = await browser.newPage();
 
   await navigateToPage(page, LOGIN_PAGE);
-  if (!process.env.LOTTERY_ID || !process.env.LOTTEY_PASSWORD) {
+  if (!process.env.LOTTERY_ID || !process.env.LOTTERY_PASSWORD) {
     throw Error('env를 설정해주세요');
   }
-  await loginToSite(page, process.env.LOTTERY_ID, process.env.LOTTEY_PASSWORD);
+  await loginToSite(page, process.env.LOTTERY_ID, process.env.LOTTERY_PASSWORD);
 
   await navigateToPage(page, PURCHASE_PAGE);
 

@@ -2,11 +2,11 @@ name: Run every Saturday morning
 
 on:
   schedule:
-    - cron: '0 7 * * 5' # 매주 토요일 오전 8시 (UTC) 실행
+    - cron: '40 7 * * 5' # 매주 토요일 오전 8시 (UTC) 실행
 
 jobs:
   run-script:
-    runs-on: 	macos-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout code
