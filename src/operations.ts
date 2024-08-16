@@ -1,7 +1,5 @@
 import nodemailer from 'nodemailer';
-import path, { dirname } from 'path';
 import { Page } from 'puppeteer';
-import { fileURLToPath } from 'url';
 
 export const navigateToPage = async (page: Page, url: string) => {
   await page.goto(url);
@@ -43,21 +41,33 @@ export const sendEmail = async () => {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_PASS,
     },
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
   });
-
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = dirname(__filename);
 
   await transporter.sendMail({
-    from: `byungminkim12@gmail.com`,
-    to: 'byungminkim12@gmail.com', // 받을 이메일 주소
+    from: process.env.GMAIL_USER,
+    to: process.env.GMAIL_USER, // 받을 이메일 주소
     subject: '복권 구매', // 이메일 제목
     text: `${Date.now()} 구매`, // 이메일 내용
-    attachments: [
-      {
-        filename: 'image.png', // 첨부 파일 이름
-        path: path.join(__dirname, 'screenshot.png'), // 로컬 경로에 있는 파일
-      },
-    ],
+
+    html: `<p>
+    <p>${Date.now()} 구매</p>
+    <img src="./screenshot.png" alt="복권 구매">
+    </p>`,
   });
+};
+
+export const checkDetourApi = async (page: Page) => {
+  const button = await page.evaluate(() => {
+    const popup = document.querySelector('#popupLayerAlert');
+    console.log(popup);
+    if (popup) {
+      return Array.from(popup.querySelectorAll('button')).find((button) => button.textContent === '확인');
+    }
+    return null;
+  });
+
+  if (button) button.click();
 };
