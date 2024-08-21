@@ -19,7 +19,7 @@ export const loginToSite = async (page: Page, userId: string, password: string):
 export const selectLotteryNumbers = async (page: Page): Promise<void> => {
   await page.click('#num2');
   await page.click('#amoundApply');
-  await page.keyboard.press('1');
+  await page.keyboard.press('5');
   await page.keyboard.press('Enter');
   await page.click('#btnSelectNum');
 };
