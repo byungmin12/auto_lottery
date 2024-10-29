@@ -27,10 +27,5 @@ dotenv.config();
 
   await page.screenshot({ path: 'screenshot.png', fullPage: true });
 
-  console.log('done');
-  // console.log(await page.content());
-
   await browser.close();
-
-  // await sendEmail();
 })();
