@@ -2,7 +2,7 @@ name: Run every Saturday morning
 
 on:
   schedule:
-    - cron: '51 7 * * 4' # 매주 토요일 오전 8시 (UTC) 실행
+    - cron: '51 7 * * 4'
 
 jobs:
   run-script:
