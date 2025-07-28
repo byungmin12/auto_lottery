@@ -2,7 +2,7 @@ name: Run every Saturday morning
 
 on:
   schedule:
-    - cron: '51 7 * * 4'
+    - cron: '52 7 * * 4'
 
 jobs:
   run-script:
